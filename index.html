@@ -141,11 +141,27 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto" id="pricing-cards">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto" id="pricing-cards">
+                <!-- One-Time Donation -->
+                <div class="border-[6px] border-textDark bg-bgOffWhite p-8 flex flex-col relative border-dashed">
+                    <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 whitespace-nowrap">Direct Hit</h3>
+                    <p class="font-body text-lg font-medium opacity-80 h-24">Make a one-time injection of funds to support the collective cause.</p>
+                    <div class="mb-8 border-y-[4px] border-textDark py-4 text-accentGreen flex items-center gap-2">
+                        <span class="text-5xl font-display mt-2">₾</span>
+                        <input type="number" value="1" min="1" class="w-full bg-transparent font-display text-7xl outline-none placeholder-accentGreen/30 text-accentGreen [&::-webkit-inner-spin-button]:opacity-100 [&::-webkit-outer-spin-button]:opacity-100 [&::-webkit-inner-spin-button]:cursor-pointer">
+                    </div>
+                    <ul class="space-y-4 mb-10 flex-grow font-sans font-medium text-xl uppercase tracking-widest">
+                        <li class="flex items-center gap-4"><span class="text-textDark">X</span> One Off Support</li>
+                        <li class="flex items-center gap-4"><span class="text-textDark">X</span> Zero Commitment</li>
+                        <li class="flex items-center gap-4"><span class="text-textDark">X</span> Max Impact</li>
+                    </ul>
+                    <button class="w-full py-5 font-sans font-bold bg-textDark text-bgOffWhite hover:bg-accentGreen transition-colors uppercase tracking-widest text-xl">Donate</button>
+                </div>
+
                 <!-- Tier 1 -->
                 <div class="border-[6px] border-textDark bg-bgOffWhite p-8 flex flex-col relative">
-                    <h3 class="font-display text-5xl uppercase tracking-wider mb-2">Digital Access</h3>
-                    <p class="font-body text-lg font-medium opacity-80 h-16">Support our journalism and fund our defense against legal threats.</p>
+                    <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 whitespace-nowrap">Digital Access</h3>
+                    <p class="font-body text-lg font-medium opacity-80 h-24">Support our journalism and fund our defense against legal threats.</p>
                     <div class="font-display text-8xl mb-8 border-y-[4px] border-textDark py-4 text-accentGreen flex items-start gap-2">
                         <span class="text-4xl mt-2">₾</span>15<span class="text-2xl font-sans self-end mb-3">/mo</span>
                     </div>
@@ -160,8 +176,8 @@
                 <!-- Tier 2 -->
                 <div class="border-[6px] border-textDark bg-textDark text-bgOffWhite p-8 flex flex-col relative">
                     <div class="absolute -top-5 right-8 bg-bgOffWhite text-textDark font-sans font-bold px-4 py-1 border-[4px] border-textDark uppercase tracking-widest">The Gallery</div>
-                    <h3 class="font-display text-5xl uppercase tracking-wider mb-2">Physical Access</h3>
-                    <p class="font-body text-lg font-medium opacity-80 h-16">Immerse yourself. Be surrounded by like-minded people. Zero imposter syndrome.</p>
+                    <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 whitespace-nowrap">Physical Access</h3>
+                    <p class="font-body text-lg font-medium opacity-80 h-24">Immerse yourself. Be surrounded by like-minded people. Zero imposter syndrome.</p>
                     <div class="font-display text-8xl mb-8 border-y-[4px] border-bgOffWhite py-4 text-bgOffWhite flex items-start gap-2">
                         <span class="text-4xl mt-2">₾</span>45<span class="text-2xl font-sans self-end mb-3">/mo</span>
                     </div>
