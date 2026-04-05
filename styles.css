@@ -4,17 +4,17 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: #EBE6D6; /* Matches tailwind Config */
-    border-left: 8px solid #121212;
+    background: #FFFFFF; /* Matches tailwind Config */
+    border-left: 8px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #121212; 
-    border: 4px solid #EBE6D6;
+    background: #000000; 
+    border: 4px solid #FFFFFF;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #0B382A; /* Changed to green on hover for contrast */
+    background: #CB0B9E; /* Changed to green on hover for contrast */
 }
 
 html {
@@ -22,8 +22,8 @@ html {
 }
 
 ::selection {
-    background-color: #121212;
-    color: #EBE6D6;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 
 body {
@@ -45,7 +45,7 @@ body {
 
 /* Duct Tape Element */
 .duct-tape {
-    background-color: #A3A3A3; /* Lighter grey for better contrast */
+    background-color: #FE0080; /* Lighter grey for better contrast */
     background-image: 
         linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(0,0,0,0.4) 100%),
         repeating-linear-gradient(135deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
@@ -65,6 +65,6 @@ body {
 
 /* Streetwear Custom Selection */
 ::selection {
-    background-color: #121212;
-    color: #EBE6D6;
+    background-color: #000000;
+    color: #FFFFFF;
 }

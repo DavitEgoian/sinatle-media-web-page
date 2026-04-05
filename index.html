@@ -16,9 +16,9 @@
             theme: {
                 extend: {
                     colors: {
-                        bgOffWhite: '#EBE6D6', /* Vintage pale yellow/cream */
-                        textDark: '#121212',  /* Rich black */
-                        accentGreen: '#0B382A', /* Dark muted athletic green */
+                        bgOffWhite: '#FFFFFF', /* Vintage pale yellow/cream */
+                        textDark: '#000000',  /* Rich black */
+                        accentGreen: '#CB0B9E', /* Dark muted athletic green */
                     },
                     fontFamily: {
                         display: ['"Anton"', 'sans-serif'],
@@ -33,6 +33,55 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white text-textDark font-body antialiased p-2 md:p-6 min-h-screen flex flex-col">
+
+    <!-- Universal Poster Scan Popup -->
+    <div id="poster-popup" class="fixed inset-0 z-[100] flex items-center justify-center bg-textDark/95 backdrop-blur-md p-4 transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="bg-bgOffWhite border-[6px] md:border-[10px] border-accentGreen max-w-3xl w-full p-8 md:p-14 relative transform scale-95 transition-transform duration-500 shadow-[16px_16px_0_0_#CB0B9E]">
+            <div class="flex flex-col items-center text-center">
+                <div class="mb-6 font-display text-xl text-accentGreen tracking-[0.2em] uppercase border-2 border-accentGreen px-4 py-1">
+                    > ATTENTION SECURED <
+                </div>
+                <h2 class="font-display text-6xl md:text-8xl uppercase text-textDark leading-[0.85] mb-8">
+                    YES, WE<br>LIED.
+                </h2>
+                <p class="font-body text-xl md:text-3xl font-medium text-textDark mb-10 py-8 leading-relaxed">
+                    It was a harmless trick to get your attention today. But without independent media, you'll be lied to exactly like this every single day. Support 22 independent Georgian platforms so you always know what's real.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 w-full justify-center">
+                    <button id="accept-truth-btn" class="bg-accentGreen text-bgOffWhite px-8 py-5 font-sans font-bold text-2xl uppercase tracking-widest hover:bg-textDark transition-colors border-[4px] border-accentGreen hover:border-textDark w-full md:w-auto group">
+                        DISCOVER INDEPENDENT MEDIA <span class="inline-block transition-transform group-hover:translate-x-2">→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('poster-popup');
+            const popupContent = popup.querySelector('div');
+            const acceptBtn = document.getElementById('accept-truth-btn');
+            
+            // Check if they've seen it already
+            if (!sessionStorage.getItem('attentionHijackedSeen')) {
+                setTimeout(() => {
+                    popup.classList.remove('opacity-0', 'pointer-events-none');
+                    popupContent.classList.remove('scale-95');
+                    popupContent.classList.add('scale-100');
+                }, 800); // Slight delay for dramatic effect
+            }
+
+            const closePopup = () => {
+                popup.classList.add('opacity-0', 'pointer-events-none');
+                popupContent.classList.remove('scale-100');
+                popupContent.classList.add('scale-95');
+                sessionStorage.setItem('attentionHijackedSeen', 'true');
+            };
+
+            acceptBtn.addEventListener('click', closePopup);
+        });
+    </script>
+
     <!-- Main Poster Frame -->
     <div class="border-[8px] md:border-[12px] border-textDark bg-bgOffWhite flex flex-col relative w-full overflow-hidden shadow-2xl">
         
@@ -377,7 +426,7 @@
 
     <!-- Cart Toast Notification -->
     <div id="cart-toast" class="fixed bottom-8 right-8 transform translate-y-40 opacity-0 transition-all duration-300 z-50">
-        <div class="bg-bgOffWhite border-[6px] border-textDark p-6 flex items-center gap-6 shadow-[8px_8px_0_0_#121212] min-w-[320px]">
+        <div class="bg-bgOffWhite border-[6px] border-textDark p-6 flex items-center gap-6 shadow-[8px_8px_0_0_#000000] min-w-[320px]">
             <div>
                 <h4 class="text-textDark font-display uppercase tracking-widest text-3xl leading-none mb-1">Secured.</h4>
                 <p class="text-sm font-sans font-medium uppercase tracking-wider">100% Profit to the cause.</p>
