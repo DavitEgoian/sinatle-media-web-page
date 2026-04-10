@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-logo-white.png">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Noto+Sans+Georgian:wght@400;600;800;900&display=swap" rel="stylesheet">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,9 +21,9 @@
                         accentGreen: '#CB0B9E', /* Dark muted athletic green */
                     },
                     fontFamily: {
-                        display: ['"Anton"', 'sans-serif'],
-                        sans: ['"Oswald"', 'sans-serif'],
-                        body: ['"Inter"', 'sans-serif']
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"Space Grotesk"', 'sans-serif']
                     }
                 }
             }
@@ -31,6 +31,7 @@
     </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="translate.js" defer></script>
 </head>
 <body class="bg-white text-textDark font-body antialiased p-2 md:p-6 min-h-screen flex flex-col">
 
@@ -95,13 +96,12 @@
         </header>
 
         <!-- Navigation Bar -->
-        <nav class="bg-textDark text-bgOffWhite border-b-[6px] md:border-b-[10px] border-textDark">
-            <div class="w-full px-4 md:px-12 py-3 md:py-4 flex flex-wrap justify-between items-center uppercase font-sans text-sm md:text-2xl tracking-widest font-medium">
-                <a href="#about" class="hover:text-accentGreen transition-colors">About</a>
-                <a href="#community" class="hover:text-accentGreen transition-colors">Community</a>
-                <a href="#store" class="hover:text-accentGreen transition-colors">Merch</a>
-                <a href="#news" class="hover:text-accentGreen transition-colors">Manifesto</a>
-                <a href="#community" class="hover:text-accentGreen transition-colors">Support</a>
+        <nav class="bg-textDark text-bgOffWhite border-b-[6px] md:border-b-[10px] border-textDark relative">
+            <div class="w-full px-4 md:px-12 py-3 md:py-4 flex flex-wrap justify-center md:justify-between items-center uppercase font-sans text-sm md:text-2xl tracking-widest font-medium gap-4">
+                <a href="#about" class="hover:text-accentGreen transition-colors" data-i18n="About">About</a>
+                <a href="#community" class="hover:text-accentGreen transition-colors" data-i18n="Community">Medias</a>
+                <a href="#store" class="hover:text-accentGreen transition-colors" data-i18n="Merch">Support</a>
+                <a href="#news" class="hover:text-accentGreen transition-colors" data-i18n="Manifesto">Merch</a>
             </div>
         </nav>
 
@@ -144,7 +144,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto" id="pricing-cards">
                 <!-- One-Time Donation -->
                 <div class="border-[6px] border-textDark bg-bgOffWhite p-8 flex flex-col relative border-dashed">
-                    <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 whitespace-nowrap">Direct Hit</h3>
+                      <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 break-words text-wrap">Direct <br> Hit</h3>
                     <p class="font-body text-lg font-medium opacity-80 h-24">Make a one-time injection of funds to support the collective cause.</p>
                     <div class="mb-8 border-y-[4px] border-textDark py-4 text-accentGreen flex items-center gap-2">
                         <span class="text-5xl font-display mt-2">₾</span>
@@ -160,7 +160,7 @@
 
                 <!-- Tier 1 -->
                 <div class="border-[6px] border-textDark bg-bgOffWhite p-8 flex flex-col relative">
-                    <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 whitespace-nowrap">Digital Access</h3>
+                      <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 break-words text-wrap">Digital <br> Access</h3>
                     <p class="font-body text-lg font-medium opacity-80 h-24">Support our journalism and fund our defense against legal threats.</p>
                     <div class="font-display text-8xl mb-8 border-y-[4px] border-textDark py-4 text-accentGreen flex items-start gap-2">
                         <span class="text-4xl mt-2">₾</span>15<span class="text-2xl font-sans self-end mb-3">/mo</span>
@@ -176,7 +176,7 @@
                 <!-- Tier 2 -->
                 <div class="border-[6px] border-textDark bg-textDark text-bgOffWhite p-8 flex flex-col relative">
                     <div class="absolute -top-5 right-8 bg-bgOffWhite text-textDark font-sans font-bold px-4 py-1 border-[4px] border-textDark uppercase tracking-widest">The Gallery</div>
-                    <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 whitespace-nowrap">Physical Access</h3>
+                      <h3 class="font-display text-4xl xl:text-5xl uppercase tracking-wide mb-2 break-words text-wrap pr-8">Physical <br> Access</h3>
                     <p class="font-body text-lg font-medium opacity-80 h-24">Immerse yourself. Be surrounded by like-minded people. Zero imposter syndrome.</p>
                     <div class="font-display text-8xl mb-8 border-y-[4px] border-bgOffWhite py-4 text-bgOffWhite flex items-start gap-2">
                         <span class="text-4xl mt-2">₾</span>45<span class="text-2xl font-sans self-end mb-3">/mo</span>
@@ -431,11 +431,12 @@
             </div>
             <div class="flex justify-between items-center pt-6 font-sans font-medium uppercase tracking-widest">
                 <p>© 2026 SINATLE <svg viewBox="0 0 100 100" class="w-4 h-4 md:w-5 md:h-5 fill-current inline-block mx-1 shrink-0 -mt-1"><polygon points="50,0 60.5,30.5 90,20 73.5,46.5 90,80 60.5,69.5 50,100 39.5,69.5 10,80 26.5,46.5 10,20 39.5,30.5" /></svg> MEDIA</p>
-                <div class="flex gap-8">
-                    <a href="#" class="hover:text-accentGreen">Privacy</a>
+                <div class="flex gap-8 items-center cursor-pointer">
+                    <a href="#" class="hover:text-accentGreen">Privacy</a>      
                     <a href="#" class="hover:text-accentGreen">Terms</a>
-                </div>
-            </div>
+                    <button class="lang-toggle-btn ml-2" title="Switch to Georgian">
+                        <img src="https://flagcdn.com/ge.svg" alt="Georgian Flag" class="w-6 md:w-8 h-auto rounded-sm border border-gray-600/50 hover:scale-110 transition-transform">
+                    </button>
         </footer>
 
     </div>

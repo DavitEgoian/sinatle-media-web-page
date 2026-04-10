@@ -1,4 +1,9 @@
- /* Brutalist / Street Noise overrides */
+ /* Make headers and display fonts bold for Space Grotesk */
+h1, h2, h3, h4, h5, h6, .font-display {
+    font-weight: 700 !important;
+}
+
+/* Brutalist / Street Noise overrides */
 ::-webkit-scrollbar {
     width: 20px;
 }
@@ -67,4 +72,61 @@ body {
 ::selection {
     background-color: #000000;
     color: #FFFFFF;
+}
+
+
+/* GEORGIAN LANGUAGE TYPOGRAPHY OVERRIDES */
+body.lang-ge {
+    font-family: 'Noto Sans Georgian', sans-serif !important;
+    word-break: break-word;
+}
+
+body.lang-ge .font-display {
+    font-family: 'Noto Sans Georgian', sans-serif !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.1 !important;
+}
+
+body.lang-ge .font-sans {
+    font-family: 'Noto Sans Georgian', sans-serif !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.02em !important;
+}
+
+body.lang-ge .font-body {
+    font-family: 'Noto Sans Georgian', sans-serif !important;
+    font-weight: 500 !important;
+    line-height: base !important;
+}
+
+/* Specific Font Size Tweaks for Georgian Layout (Longer text) */
+body.lang-ge .text-\[12vw\] {
+    font-size: 9.5vw !important; /* Hero title smaller */
+}
+
+body.lang-ge .text-6xl {
+    font-size: 3rem !important; /* from 3.75rem */
+}
+
+@media (min-width: 768px) {
+    body.lang-ge .md\:text-8xl {
+        font-size: 4.25rem !important; /* from 6rem */
+    }
+    body.lang-ge .md\:text-7xl {
+        font-size: 3.5rem !important; /* from 4.5rem */
+    }
+}
+
+body.lang-ge h2 {
+   font-size: 3rem !important; 
+}
+
+body.lang-ge .tracking-widest {
+    letter-spacing: 0.05em !important; /* Reduced from 0.1em since Georgian is wider */
+}
+
+/* Override all caps transforms if it breaks Georgian rendering (though some modern fonts support Mtavruli) */
+body.lang-ge .uppercase {
+    text-transform: none !important;
 }
