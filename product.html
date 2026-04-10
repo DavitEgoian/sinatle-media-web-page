@@ -27,6 +27,7 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white text-textDark font-body antialiased p-2 md:p-6 min-h-screen flex flex-col">
@@ -144,8 +145,21 @@
                 btn.classList.remove('bg-textDark');
                 btn.classList.add('bg-accentGreen');
                 
-                // Alert for demo purposes
-                alert(`Added ${title} ${selectedSize ? '(Size: ' + selectedSize + ')' : ''} to your cart!`);
+                Swal.fire({
+                    title: 'SECURED.',
+                    text: `Added ${title} ${selectedSize ? '(Size: ' + selectedSize + ')' : ''} to your cart!`,
+                    icon: 'success',
+                    background: '#FFFFFF',
+                    color: '#000000',
+                    confirmButtonColor: '#CB0B9E',
+                    confirmButtonText: 'CONTINUE',
+                    customClass: {
+                        popup: 'border-[6px] border-textDark rounded-none shadow-[8px_8px_0_0_#000000]',
+                        title: 'font-display uppercase tracking-widest text-3xl mb-1',
+                        htmlContainer: 'font-sans font-medium uppercase tracking-wider',
+                        confirmButton: 'font-sans uppercase text-xl font-bold tracking-widest rounded-none border-[4px] border-textDark hover:bg-textDark transition-colors px-6 py-3',
+                    }
+                });
             }, 1000);
         }
     </script>
