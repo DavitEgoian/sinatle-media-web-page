@@ -50,7 +50,7 @@ body {
 
 @font-face {
     font-family: 'LS Elva Black';
-    src: url('font/LS_Elva_Black-13761448382.otf') format('opentype');
+    src: url('../font/LS_Elva_Black-13761448382.otf') format('opentype');
     font-weight: 900;
     font-style: normal;
     font-display: swap;

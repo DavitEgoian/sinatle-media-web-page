@@ -1,4 +1,7 @@
 const translations = {
+  'INATLE': 'ინათლე',
+  'Sinatle Media | Product': 'სინათლე მედია | პროდუქტი',
+  'STORE': 'მერჩი',
   'Sinatle Media | The Truth is Here': 'სინათლე მედია | სიმართლე აქ არის',
   '> ATTENTION SECURED <': '> ყურადღება მიპყრობილია <',
   'YES, WE LIED.': 'დიახ, ჩვენ მოგატყუეთ.',

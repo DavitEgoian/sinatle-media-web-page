@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinatle Media | Product</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/S-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgOffWhite: '#FFFFFF',
+                        textDark: '#000000',
+                        accentGreen: '#8B1560',
+                    },
+                    fontFamily: {
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                        body: ['"Space Grotesk"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-white text-textDark font-body antialiased p-2 md:p-6 min-h-screen flex flex-col">
+    <!-- Main Poster Frame -->
+    <div class="border md:border-2 border-textDark bg-bgOffWhite flex flex-col relative w-full overflow-hidden shadow-2xl flex-grow">
+        
+        <!-- Header Banner -->
+        <header class="border-b-2 md:border-b-2 border-textDark flex items-center justify-between p-4 md:p-8 bg-bgOffWhite">
+            <a href="index.html" class="font-sans font-bold text-xl md:text-3xl uppercase tracking-widest hover:text-accentGreen">← Back</a>
+            <h1 class="font-display text-4xl md:text-6xl text-textDark tracking-normal whitespace-nowrap m-0 text-center uppercase flex flex-nowrap items-center justify-center gap-4 md:gap-8">
+                <span class="flex items-center"><img src="../img/S-logo.png" alt="S" class="h-[0.75em] w-auto shrink-0 mr-1 md:mr-2">INATLE</span>
+                <span>STORE</span>
+            </h1>
+            <div class="w-16"></div> <!-- Spacer for flex between -->
+        </header>
+
+        <!-- Product Section -->
+        <main class="flex-grow grid grid-cols-1 md:grid-cols-2 p-6 md:p-12 lg:p-16 gap-8 md:gap-16">
+            <!-- Image Area -->
+            <div class="border-2 border-textDark bg-textDark relative aspect-[4/5] flex items-center justify-center overflow-hidden">
+                <img id="product-img" src="" alt="Product Image" class="object-cover w-full h-full">
+            </div>
+
+            <!-- Details Area -->
+            <div class="flex flex-col justify-center">
+                <h2 id="product-title" class="font-display text-6xl md:text-8xl uppercase tracking-wider leading-none mb-2 text-textDark">
+                    Product Title
+                </h2>
+                <p id="product-desc" class="font-body text-xl font-medium mt-2 text-textDark uppercase opacity-80 mb-6">
+                    Description
+                </p>
+                
+                <div id="product-price" class="font-display text-7xl mb-8 text-accentGreen border-b border-textDark pb-8">
+                    ₾0
+                </div>
+
+                <!-- Options -->
+                <div class="mb-8" id="size-selector">
+                    <h3 class="font-sans font-bold text-2xl uppercase tracking-widest mb-4">Select Size</h3>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="S" class="peer sr-only" checked>
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">S</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="M" class="peer sr-only">
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">M</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="L" class="peer sr-only">
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">L</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="size" value="XL" class="peer sr-only">
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">XL</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Add to Cart -->
+                <button id="add-to-cart-btn" class="w-full bg-accentGreen text-bgOffWhite px-10 py-6 font-sans uppercase text-3xl font-bold tracking-widest hover:bg-textDark transition-colors border border-textDark" onclick="handleAddToCart()">
+                    ADD TO CART
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Script to populate data -->
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        const title = getUrlParameter('title');
+        const price = getUrlParameter('price');
+        const desc = getUrlParameter('desc');
+        const img = getUrlParameter('img');
+
+        if (title) document.getElementById('product-title').innerText = title;
+        if (price) document.getElementById('product-price').innerText = price;
+        if (desc) document.getElementById('product-desc').innerText = desc;
+        if (img) document.getElementById('product-img').src = img;
+
+        // Hide size selector if it's not apparel (basic heuristic based on keywords)
+        const isApparel = title.toLowerCase().includes('tee') || 
+                          title.toLowerCase().includes('hoodie') || 
+                          title.toLowerCase().includes('jacket');
+        
+        if (!isApparel) {
+            document.getElementById('size-selector').style.display = 'none';
+        }
+
+        // Cart Notification Logic
+        function handleAddToCart() {
+            const btn = document.getElementById('add-to-cart-btn');
+            
+            // Check size if applicable
+            let selectedSize = '';
+            if (isApparel) {
+                const checked = document.querySelector('input[name="size"]:checked');
+                if (checked) selectedSize = checked.value;
+            }
+
+            // Visual feedback
+            const originalText = btn.innerText;
+            btn.innerText = 'ADDED TO CART';
+            btn.classList.add('bg-textDark');
+            btn.classList.remove('bg-accentGreen');
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove('bg-textDark');
+                btn.classList.add('bg-accentGreen');
+                
+                Swal.fire({
+                    title: 'SECURED.',
+                    text: `Added ${title} ${selectedSize ? '(Size: ' + selectedSize + ')' : ''} to your cart!`,
+                    icon: 'success',
+                    background: '#FFFFFF',
+                    color: '#000000',
+                    confirmButtonColor: '#8B1560',
+                    confirmButtonText: 'CONTINUE',
+                    customClass: {
+                        popup: 'border-2 border-textDark rounded-none shadow-xl shadow-textDark/10',
+                        title: 'font-display uppercase tracking-widest text-3xl mb-1',
+                        htmlContainer: 'font-sans font-medium uppercase tracking-wider',
+                        confirmButton: 'font-sans uppercase text-xl font-bold tracking-widest rounded-none border border-textDark hover:bg-textDark transition-colors px-6 py-3',
+                    }
+                });
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
