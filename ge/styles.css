@@ -89,6 +89,12 @@ body .font-body {
     line-height: base !important;
 }
 
+body .font-space-grotesk {
+    font-family: 'Space Grotesk', sans-serif !important;
+    font-weight: 700 !important;
+    font-variant-numeric: lining-nums tabular-nums;
+}
+
 /* Specific Font Size Tweaks for Georgian Layout (Longer text) */
 body .text-\[10vw\] {
     font-size: 8vw !important;
