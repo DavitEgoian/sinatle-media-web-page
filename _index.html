@@ -75,6 +75,7 @@
             // Check if they've seen it already
             if (!sessionStorage.getItem('attentionHijackedSeen')) {
                 setTimeout(() => {
+                    document.body.style.overflow = 'hidden';
                     popup.classList.remove('opacity-0', 'pointer-events-none');
                     popupContent.classList.remove('scale-95');
                     popupContent.classList.add('scale-100');
@@ -82,6 +83,7 @@
             }
 
             const closePopup = () => {
+                document.body.style.overflow = '';
                 popup.classList.add('opacity-0', 'pointer-events-none');
                 popupContent.classList.remove('scale-100');
                 popupContent.classList.add('scale-95');
