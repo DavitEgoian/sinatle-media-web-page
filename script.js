@@ -5,14 +5,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const rightBtn = document.getElementById("scroll-right");
 
     if (carousel && leftBtn && rightBtn) {
-        const scrollAmount = 350 + 48; // card width + gap (approx)
+        // Calculate amount dynamically based on first card
+        const getScrollAmount = () => {
+            const firstCard = carousel.querySelector('.snap-center');
+            return firstCard ? firstCard.clientWidth + 48 : 398;
+        };
 
         leftBtn.addEventListener("click", () => {
-            carousel.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+            carousel.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
         });
 
         rightBtn.addEventListener("click", () => {
-            carousel.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            carousel.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
         });
 
         // Update button states on scroll

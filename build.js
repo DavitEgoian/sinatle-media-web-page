@@ -95,6 +95,19 @@ fs.writeFileSync('ge/styles.css', geStyles);
 });
 
 // Create redirect at root
-fs.writeFileSync('index.html', '<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; URL=ge/index.html" /></head><body></body></html>');
+const rootHtml = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sinatle Media</title>
+    <link rel="canonical" href="/ge/index.html">
+    <meta http-equiv="refresh" content="0; URL=ge/index.html" />
+    <script>window.location.replace("ge/index.html");</script>
+</head>
+<body>
+    <p>Redirecting to <a href="ge/index.html">Georgian version</a>...</p>
+</body>
+</html>`;
+fs.writeFileSync('index.html', rootHtml);
 
 console.log('Done building ge/ and en/');
