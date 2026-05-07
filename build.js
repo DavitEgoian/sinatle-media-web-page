@@ -56,8 +56,8 @@ function makeGe(html) {
   out = out.replace(/src="https:\/\/flagcdn\.com\/ge\.svg"/g, 'src="https://flagcdn.com/us.svg"');
   out = out.replace(/alt="Georgian Flag"/g, 'alt="US Flag"');
   
-  out = out.replace(/src="(?:\.\.\/)?img\/S-logo\.png"/g, 'src="../img/6-S-Geo-logo-white.png" style="filter: invert(1);"');
-  out = out.replace(/href="(?:\.\.\/)?img\/S-logo[-a-zA-Z0-9]*\.png"/g, 'href="../img/6-S-Geo-logo-white.png"');
+  out = out.replace(/src="(?:\.\.\/)?img\/S-logo\.png"/g, 'src="../img/7-S-Geo-logo-white.png" style="filter: invert(1);"');
+  out = out.replace(/href="(?:\.\.\/)?img\/S-logo[-a-zA-Z0-9]*\.png"/g, 'href="../img/7-S-Geo-logo-white.png"');
   out = out.replace(/<script src="(?:\.\.\/)?translate\.js" defer><\/script>/g, '');
   
   return out;
