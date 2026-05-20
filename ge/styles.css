@@ -149,9 +149,8 @@ body header h1, body footer h2 {
     gap: 0.5em !important;
 }
 
-/* Nudge the logo up in Georgian to vertically align with the custom LS Elva font and compress the gap */
+/* Keep the logo spacing tight in Georgian without shifting it upward */
 body header h1 img, body footer h2 img {
-    transform: translateY(-13%);
     margin-right: -0.0001em !important;
 }
 
