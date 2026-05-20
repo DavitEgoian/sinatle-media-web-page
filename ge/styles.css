@@ -80,13 +80,13 @@ body .font-display {
 
 body .font-sans {
     font-family: 'geo-gza', sans-serif !important;
-    font-weight: normal !important; /* Bold */
+    font-weight: normal !important;
     letter-spacing: 0.02em !important;
 }
 
 body .font-body {
     font-family: 'geo-gza', sans-serif !important;
-    font-weight: normal !important; /* Regular */
+    font-weight: normal !important;
     line-height: base !important;
 }
 
@@ -149,7 +149,7 @@ body header h1, body footer h2 {
     gap: 0.5em !important;
 }
 
-/* Keep the logo spacing tight in Georgian without shifting it upward */
+/* Nudge the logo up in Georgian to vertically align with the custom LS Elva font and compress the gap */
 body header h1 img, body footer h2 img {
     margin-right: -0.0001em !important;
 }
