@@ -107,7 +107,12 @@
         const title = getUrlParameter('title');
         const price = getUrlParameter('price');
         const desc = getUrlParameter('desc');
-        const img = getUrlParameter('img');
+        let img = getUrlParameter('img');
+        
+        // Upgrade Pinterest images to high quality (1200x)
+        if (img && img.includes('i.pinimg.com')) {
+            img = img.replace(/\/\d+x\//, '/1200x/');
+        }
 
         if (title) document.getElementById('product-title').innerText = title;
         if (price) document.getElementById('product-price').innerText = price;

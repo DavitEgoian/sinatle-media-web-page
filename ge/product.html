@@ -6,7 +6,7 @@
     <title>სინათლე მერჩი</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="icon" type="image/png" sizes="32x32" href="../img/7-S-Geo-logo-white.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/lettermark.svg">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -38,8 +38,7 @@
         <header class="border-b-2 md:border-b-2 border-textDark flex items-center justify-between p-4 md:p-8 bg-bgOffWhite gap-2">
             <a href="index.html" class="font-sans font-bold text-base sm:text-xl md:text-3xl uppercase tracking-widest hover:text-accentGreen shrink-0 whitespace-nowrap">← ukan</a>
             <h1 class="font-display text-2xl sm:text-4xl md:text-6xl text-textDark tracking-normal whitespace-nowrap m-0 text-center uppercase flex flex-nowrap items-center justify-center gap-2 sm:gap-4 md:gap-8">
-                <span class="flex items-center"><img src="../img/7-S-Geo-logo-white.png" style="filter: invert(1);" alt="S" class="h-[0.75em] -mr-4 md:-mr-6 z-10 relative">ინათლე</span>
-                <span>მერჩი</span>
+                <span class="flex items-center"><img src="../img/logo-merch.svg" class="h-[0.5em] md:h-[1em] z-10 relative mt-2 md:mt-4"></span>
             </h1>
             <div class="w-8 sm:w-16 shrink-0"></div> <!-- Spacer for flex between -->
         </header>
@@ -66,23 +65,23 @@
 
                 <!-- Options -->
                 <div class="mb-8" id="size-selector">
-                    <h3 class="font-sans font-bold text-2xl uppercase tracking-widest mb-4">airchiet zoma</h3>
-                    <div class="flex flex-wrap gap-4">
+                    <h3 class="font-bold text-2xl uppercase tracking-widest mb-4">airCie zoma</h3>
+                    <div class="flex flex-wrap gap-4" style="font-family: 'Space Grotesk', sans-serif;">
                         <label class="cursor-pointer">
                             <input type="radio" name="size" value="S" class="peer sr-only" checked>
-                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">S</div>
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">S</div>
                         </label>
                         <label class="cursor-pointer">
                             <input type="radio" name="size" value="M" class="peer sr-only">
-                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">M</div>
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">M</div>
                         </label>
                         <label class="cursor-pointer">
                             <input type="radio" name="size" value="L" class="peer sr-only">
-                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">L</div>
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">L</div>
                         </label>
                         <label class="cursor-pointer">
                             <input type="radio" name="size" value="XL" class="peer sr-only">
-                            <div class="w-14 h-14 border border-textDark flex items-center justify-center font-display text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">XL</div>
+                            <div class="w-14 h-14 border border-textDark flex items-center justify-center text-2xl peer-checked:bg-textDark peer-checked:text-bgOffWhite hover:bg-textDark/10 transition-colors">XL</div>
                         </label>
                     </div>
                 </div>
@@ -107,7 +106,11 @@
         const title = getUrlParameter('title');
         const price = getUrlParameter('price');
         const desc = getUrlParameter('desc');
-        const img = getUrlParameter('img');
+        let img = getUrlParameter('img');
+        
+        if (img && img.includes('i.pinimg.com')) {
+            img = img.replace(/\/\d+x\//, '/1200x/');
+        }
 
         if (title) document.getElementById('product-title').innerText = title;
         if (price) document.getElementById('product-price').innerText = price;

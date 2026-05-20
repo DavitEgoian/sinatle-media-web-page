@@ -80,7 +80,7 @@ let geStyles = enStyles.replace(/body\.lang-ge /g, 'body ');
 geStyles = geStyles.replace(/body\.lang-ge/g, 'body');
 fs.writeFileSync('ge/styles.css', geStyles);
 
-['_index.html', 'product.html'].forEach(file => {
+['product.html'].forEach(file => {
   const original = fs.readFileSync(file, 'utf8');
   let baseName = file === '_index.html' ? 'index.html' : file;
   let modifiedHref = file === '_index.html' ? 'index.html' : 'product.html';
