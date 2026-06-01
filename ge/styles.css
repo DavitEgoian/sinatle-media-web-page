@@ -162,3 +162,13 @@ body nav div {
 body .uppercase {
     text-transform: none !important;
 }
+
+/* Merch image quality toggle */
+.merch-image {
+    filter: blur(0.35px) saturate(0.98) contrast(0.98);
+    transition: filter 200ms ease;
+}
+
+body.merch-high-quality .merch-image {
+    filter: none;
+}

@@ -456,19 +456,37 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        const prefersHighQuality = sessionStorage.getItem("merchHighQuality") === "1";
+        if (prefersHighQuality) {
+            document.body.classList.add("merch-high-quality");
+        }
+
+        const enableHighQuality = () => {
+            sessionStorage.setItem("merchHighQuality", "1");
+            document.body.classList.add("merch-high-quality");
+        };
+
         const products = document.querySelectorAll("#merch-carousel > div");
         products.forEach(p => {
             // Find details
             p.classList.add("cursor-pointer", "hover:border-accentGreen", "transition-colors");
             
-            const img = p.querySelector("img").src;
+            const imgEl = p.querySelector("img");
+            if (imgEl) {
+                imgEl.classList.add("merch-image");
+            }
+
+            const img = imgEl ? imgEl.src : "";
             const title = p.querySelector("h3").innerText;
             const desc = p.querySelector("p").innerText;
             const price = p.querySelector("div.text-accentGreen").innerText;
             
             const url = 'product.html?title=' + encodeURIComponent(title) + '&desc=' + encodeURIComponent(desc) + '&price=' + encodeURIComponent(price) + '&img=' + encodeURIComponent(img);
             
-            p.onclick = () => window.location.href = url;
+            p.onclick = () => {
+                enableHighQuality();
+                window.location.href = url;
+            };
             
             // Update button
             const btn = p.querySelector("button");
@@ -476,6 +494,7 @@
                 btn.innerText = "CHOOSE OPTIONS";
                 btn.onclick = (e) => {
                     e.stopPropagation();
+                    enableHighQuality();
                     window.location.href = url;
                 };
             }
